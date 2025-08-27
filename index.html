@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stomatomi — Atomi is Rebranding</title>
+  <meta name="description" content="Official announcement: Atomi is rebranding to Stomatomi — a fresh identity inspired by stomata." />
+  <style>
+    :root{
+      --blue: #1769ff; /* brand blue */
+      --blue-600: #1557ff;
+      --ink: #0b1220; /* primary text */
+      --muted: #5a6b85; /* secondary text */
+      --line: #e7edf5; /* borders */
+      --bg: #ffffff; /* page */
+      --surface: #ffffff; /* cards */
+      --radius: 14px;
+      --shadow: 0 6px 18px rgba(16, 34, 68, 0.08);
+      --maxw: 960px;
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin:0; font: 16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      color: var(--ink); background: var(--bg);
+    }
+    a{ color: var(--blue); text-decoration: none; }
+    .container{ width: min(100%, var(--maxw)); margin: 0 auto; padding: 0 20px; }
+
+    /* Top note */
+    .note{ background: #eef4ff; color:#0a2a6a; border-bottom: 1px solid #dfe9ff; }
+    .note .container{ padding: 10px 0; font-weight: 600; }
+
+    /* Header */
+    header{ position: sticky; top:0; z-index:10; background: rgba(255,255,255,.8); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .brand img{ height:28px; width:auto; display:block; }
+    .brand .name{ font-weight: 800; letter-spacing:.2px; color:#1a2a44; }
+
+    .links{ display:flex; gap:10px; align-items:center; }
+    .links a{ color:#2a3b52; padding:8px 10px; border-radius:10px; }
+    .links a[aria-disabled="true"]{ color:#6b7c93; cursor: not-allowed; }
+    .links a:hover{ background:#f4f7fb; }
+    .cta{ border:1px solid var(--line); padding:8px 12px; border-radius:10px; color:#1c2a45; }
+    .btn{ background: var(--blue); color:#fff; padding:8px 12px; border-radius:10px; font-weight:700; box-shadow: var(--shadow); }
+
+    .hamburger{ display:none; border:0; background:none; font-size:20px; }
+    @media (max-width: 820px){
+      .links{ display:none; position:absolute; left:0; right:0; top:62px; background:#fff; border-bottom:1px solid var(--line); padding:10px 20px; }
+      .links.open{ display:flex; flex-direction:column; align-items:flex-start; }
+      .hamburger{ display:block; }
+    }
+
+    /* Hero */
+    .hero{ padding: 36px 0 12px; border-bottom:1px solid var(--line); }
+    .eyebrow{ display:inline-block; font-size:12px; font-weight:700; letter-spacing:.3px; text-transform:uppercase; color:#2850b8; background:#eef4ff; padding:6px 10px; border-radius:999px; }
+    h1{ font-size: clamp(28px, 5vw, 44px); line-height:1.1; margin: 12px 0 6px; }
+    .lede{ color: var(--muted); max-width: 70ch; }
+
+    /* Article */
+    article{ margin: 28px 0 40px; }
+    .meta{ color:#6a7a92; font-size:14px; margin-bottom: 8px; }
+    .prose p{ margin: 14px 0; }
+    .callout{ background:#f7fbff; border:1px solid #dfe9ff; padding:12px 14px; border-radius:12px; }
+
+    .grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 18px 0; }
+    .card{ background: var(--surface); border:1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+    .card h3{ margin:4px 0 6px; font-size:18px; }
+    .muted{ color: var(--muted); }
+
+    /* Image Compare Section */
+    .compare{ margin:40px 0; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .compare img{ width:100%; border-radius: var(--radius); border:1px solid var(--line); box-shadow: var(--shadow); }
+    .compare h3{ text-align:center; margin-top:8px; color:var(--muted); font-size:14px; }
+    @media (max-width: 820px){ .compare{ grid-template-columns:1fr; } }
+
+    /* FAQ */
+    details{ background:#fff; border:1px solid var(--line); border-radius:12px; padding: 10px 12px; }
+    details + details{ margin-top: 8px; }
+    summary{ cursor:pointer; font-weight:700; }
+
+    /* Timeline */
+    .timeline{ padding-left: 18px; border-left:2px solid #dfe9ff; }
+    .timeline li{ margin: 10px 0; }
+
+    /* Footer */
+    footer{ border-top:1px solid var(--line); padding:24px 0 40px; background: #fafcff; color:#4a5a72; }
+    .footer-grid{ display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:18px; }
+    .footer-grid a{ color:#556781; }
+    .tiny{ font-size:12px; color:#6c7f99; }
+    @media (max-width: 820px){ .footer-grid{ grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="note">
+    <div class="container">Brand update: Atomi is becoming <strong>Stomatomi</strong>.</div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="Stomatomi logo" />
+        <span class="name">Stomatomi</span>
+      </div>
+      <nav class="menu">
+        <button class="hamburger" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu(this)">☰</button>
+        <div id="nav-links" class="links">
+          <a href="#" aria-disabled="true">Products</a>
+          <a href="#" aria-disabled="true">Schools</a>
+          <a href="#" aria-disabled="true">Teachers</a>
+          <a href="#" aria-disabled="true">Students</a>
+          <a href="#" aria-disabled="true">Blog</a>
+          <span class="cta" aria-hidden="true">Sign in</span>
+          <a class="btn" aria-disabled="true" href="#" onclick="return false;">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Announcement · August 27, 2025</span>
+        <h1>Atomi is rebranding to <em>Stomatomi</em></h1>
+        <p class="lede">We’re evolving our identity with a clean, welcoming look inspired by the biology of learning. New name, same mission: clear teaching that helps every student thrive.</p>
+      </div>
+    </section>
+
+    <article class="container" aria-labelledby="title">
+      <p class="meta">By Stomatomi Editorial Team · <time datetime="2025-08-27">August 27, 2025</time></p>
+      <h2 id="title">Why “Stomatomi”?</h2>
+      <div class="prose">
+        <p>In plants, <em>stomata</em> are tiny pores that open and close to regulate gas exchange — a simple, elegant system that keeps life in balance. We think learning works the same way: open to ideas, exchange knowledge, grow with confidence.</p>
+        <p class="callout"><strong>Stomatomi</strong> is a nod to clarity and growth. It’s still us — just fresher and more focused on what matters.</p>
+      </div>
+
+      <div class="grid" role="list">
+        <div class="card" role="listitem">
+          <h3>Same mission</h3>
+          <p class="muted">Clear, engaging lessons — unchanged.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>Fresh identity</h3>
+          <p class="muted">Blue‑and‑white palette, crisp typography, calm visuals.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>Seamless transition</h3>
+          <p class="muted">Your classes and logins continue to work as usual.</p>
+        </div>
+      </div>
+
+      <h2>Before & After</h2>
+      <div class="compare">
+        <div>
+          <img src="before.png" alt="Before — Atomi branding" />
+          <h3>Before: Atomi</h3>
+        </div>
+        <div>
+          <img src="logo.png" alt="After — Stomatomi branding" />
+          <h3>After: Stomatomi</h3>
+        </div>
+      </div>
+
+      <h2>What changes and what doesn’t</h2>
+      <p><strong>Changing:</strong> Name, logo, and visual system.</p>
+      <p><strong>Not changing:</strong> Accounts, classes, and progress — no action needed.</p>
+
+      <h2>Timeline</h2>
+      <ul class="timeline">
+        <li><strong>Today</strong> — Announcement and preview branding.</li>
+        <li><strong>Week 1</strong> — New logo and colours roll out across the site.</li>
+        <li><strong>Week 2</strong> — Updated resources and brand assets released.</li>
+      </ul>
+
+      <h2>FAQ</h2>
+      <details>
+        <summary>Is my Atomi account still valid?</summary>
+        <p>Yes. Your credentials and classes continue to work — no action required.</p>
+      </details>
+      <details>
+        <summary>Do links or videos change?</summary>
+        <p>Existing links will redirect. New content will carry Stomatomi branding.</p>
+      </details>
+      <details>
+        <summary>Why a biology‑inspired name?</summary>
+        <p>It captures our ethos: openness to ideas and visible growth, like stomata enabling life.</p>
+      </details>
+
+      <h2>Press & Contact</h2>
+      <p>For media enquiries, reach the team at <a href="#" aria-disabled="true">press@stomatomi.example</a> (coming soon).</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <img src="logo.png" alt="Stomatomi logo small" />
+          <span class="name">Stomatomi</span>
+        </div>
+        <p class="tiny">© 2025 Stomatomi. All rights reserved.</p>
+        <p class="tiny">This page is a static mock announcement for a school project.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#" aria-disabled="true">About</a><br>
+        <a href="#" aria-disabled="true">Careers</a><br>
+        <a href="#" aria-disabled="true">Press</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="#" aria-disabled="true">Help Center</a><br>
+        <a href="#" aria-disabled="true">Guides</a><br>
+        <a href="#" aria-disabled="true">Status</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#" aria-disabled="true">Terms</a><br>
+        <a href="#" aria-disabled="true">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(btn){
+      const links = document.getElementById('nav-links');
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+  </script>
+</body>
+</html>
